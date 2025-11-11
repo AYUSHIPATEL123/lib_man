@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}login{% endblock  %}
+{% block content %}
+<form method="POST" action={% url 'login'%} class="container" style="margin-inline:450px; margin-top:200px;">
+    {% csrf_token %}
+    <div class="container">
+    <h2>Log In</h2>
+    <br>
+    <label for="username">username</label>
+    <input type="text" name="username" class="col-sm-4 col-form-label">
+    <br>
+    <br>
+    <lable for= "p">password</lable>
+    <input type="password" name="password" id="p" class="col-sm-4 col-form-label">
+<br>
+    <button type="submit" class="btn btn-primary col-sm-4 col-form-label m-4" > Login </button>
+    <p>if don't have then create <a href={% url 'register' %}>register</a></p>
+    </div>
+</form>
+{% endblock  %}

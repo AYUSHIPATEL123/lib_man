@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+User Books
+{% endblock  %}
+{% block content %}
+<div class="container">
+    <h2>Your Books</h2>
+<div class="row row-cols-4 row-cols-md-4 g-4 m-3">
+{% for bk in books %}
+  <div class="col">
+    <div class="card card border-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><a style="text-decoration:none;" href={{ bk.get_url }}>{{bk}}</a></h5>
+        <h6 class="card-text">User : {{ bk.user }}</h6>
+        <h6 class="card-text">Book : {{ bk.book }}</h6>
+        <h6 class="card-text">Status : {{ bk.status }}</h6>
+        <p class="card-text">Issue Date : {{ bk.issue_date }}</p>
+        <p class="card-text">Renual Date : {{ bk.renual_date }}</p>
+        <p class="card-text">Return Date : {{ bk.return_date }}</p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+{% endblock  %}

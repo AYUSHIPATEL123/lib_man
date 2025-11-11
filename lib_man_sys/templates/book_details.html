@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Produt Details{% endblock  %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+<div class="container m-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ book.title }}</h2>
+            <p class="text-muted mb-4">Auther : {{ book.author }}</p>
+            {% if request.user.is_superuser %}
+            <p class="text-muted mb-4">Stock : {{ book.available_copies }}</p>
+            {% endif %}
+            <p class="mb-4">{{ book.description }}</p>
+            <div class="mb-4">   
+            </div>
+            <form action={% url 'issue_details' book_slug=book.slug %} method="POST">
+                {% csrf_token %}
+            <button type="submit" class="btn btn-primary">
+                {% csrf_token %}
+                {% comment %} <a href={% url 'issue_details' book_slug=book.slug %} class="btn btn-primary btn-lg mb-3 me-2"> {% endcomment %}
+                    Requeste A Book
+                {% comment %} </a> {% endcomment %}
+            </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock  %}
