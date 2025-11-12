@@ -43,10 +43,6 @@ def count_steps(s1,s2):
             count += len(s1)-len(s2)
     return count        
             
-print("steps to make s2 from s1 : ",count_steps("abad","abac"))                                                    
-print("steps to make s2 from s1 : ",count_steps("Insa","India"))  
-print("steps to make s2 from s1 : ",count_steps("xx", "x x"))                                                  
-print("steps to make s2 from s1 : ",count_steps("kitten", "sitting"))                                                    
-print("steps to make s2 from s1 : ",count_steps("aaaa", "aa"))                                                    
-print("steps to make s2 from s1 : ",count_steps("", ""))                                                    
-print("steps to make s2 from s1 : ",count_steps("abc", "axydc"))                                                    
+x = input("enter the string s1 : ")
+y = input("enter the string s2 : ")
+print("steps to make s2 from s1 : ",count_steps(x,y))                                      
